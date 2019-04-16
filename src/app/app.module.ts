@@ -5,7 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserModule } from './user/user.module';
 import { ChatModule } from './chat/chat.module';
-import { RouterModule,Routes } from '@angular/router';
+import { RouterModule,Routes } from '@angular/router'
+
 import { LoginComponent } from './user/login/login.component';
 import { ToastrModule } from 'ngx-toastr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
@@ -26,7 +27,7 @@ import { AppService } from './app.service';
     ChatModule,
     UserModule,
     AppRoutingModule,
-    ToastrModule ,
+    ToastrModule.forRoot(),
     BrowserAnimationsModule,
     HttpClientModule,
      
