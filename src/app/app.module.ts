@@ -44,7 +44,10 @@ import { AppService } from './app.service';
 
   ],
   
-  providers: [AppService],
-  bootstrap: [AppComponent]
-})
+  providers: [AppService ,CookieService ],
+  bootstrap: [AppComponent],
+  
+  
+  },
+)
 export class AppModule { }

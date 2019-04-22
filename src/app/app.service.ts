@@ -1,3 +1,5 @@
+
+    
 import { Injectable } from '@angular/core';
 import {observable, Observable} from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
@@ -41,22 +43,7 @@ export class AppService {
  public signupFunction(data): Observable<any> {
 
     
-  const data = {
-
-    firstName: this.firstName,
-
-    lastName: this.lastName,
-
-    mobile: this.mobile,
-
-    email: this.email,
-
-    password: this.password,
-
-    apiKey: this.apiKey
-
-  };
-    
+  
     
     return this.http.post(`${this.url}/api/v1/users/signup`,data);
 
@@ -90,3 +77,4 @@ export class AppService {
 
   }  // END handleError
 }
+
