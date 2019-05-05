@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 import * as io from 'socket.io-client';
 
-import {observable, Observable} from 'rxjs';
+import {observable, Observable, throwError} from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
 
 
@@ -96,12 +96,9 @@ export class SocketService {
   // end events to be emitted
 
   // chat related methods 
-
-  
-
   public getChat(senderId, receiverId, skip): Observable<any> {
 
-    return this.http.get(`${this.url}/api/v1/chat/get/for/user?senderId=${senderId}&receiverId=${receiverId}&skip=${skip}&authToken=${CookieService.get('authtoken')}`)
+    return this.http.get(`${this.url}/api/v1/chat/get/for/user?senderId=${senderId}&receiverId=${receiverId}&skip=${skip}&authToken=${Cookie.get('authtoken')}`)
       .do(data => console.log('Data Received'))
       .catch(this.handleError);
 
