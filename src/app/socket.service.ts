@@ -21,10 +21,11 @@ export class SocketService {
   private socket;
 
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient, private cookie:CookieService) {
     // connection is being created.
     // that handshake
     this.socket = io(this.url);
+    
 
   }
 
@@ -99,8 +100,7 @@ export class SocketService {
   public getChat(senderId, receiverId, skip): Observable<any> {
 
     return this.http.get(`${this.url}/api/v1/chat/get/for/user?senderId=${senderId}&receiverId=${receiverId}&skip=${skip}&authToken=${Cookie.get('authtoken')}`)
-      .do(data => console.log('Data Received'))
-      .catch(this.handleError);
+      
 
   } // end logout function
 
