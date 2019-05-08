@@ -7,9 +7,7 @@ import {observable, Observable, throwError} from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
 
 
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/toPromise';
+
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { HttpErrorResponse, HttpParams } from "@angular/common/http";
 
@@ -99,7 +97,7 @@ export class SocketService {
   // chat related methods 
   public getChat(senderId, receiverId, skip): Observable<any> {
 
-    return this.http.get(`${this.url}/api/v1/chat/get/for/user?senderId=${senderId}&receiverId=${receiverId}&skip=${skip}&authToken=${Cookie.get('authtoken')}`)
+    return this.http.get(`${this.url}/api/v1/chat/get/for/user?senderId=${senderId}&receiverId=${receiverId}&skip=${skip}&authToken=${this.cookie.get('authtoken')}`)
       
 
   } // end logout function
